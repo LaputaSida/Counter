@@ -1,0 +1,160 @@
+<html>
+	<head>
+		<title>
+		更新療程資料
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta charset="更新療程資料">
+		<meta name="description" content="">
+		<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+		<meta name="author" content="Hege Refsnes">
+		<link rel="stylesheet" href="w3-theme-blue-grey.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	
+	<body>
+	<!-- Header -->
+	
+	<header class="w3-display-container w3-content w3-hide-jumbo" style="max-width:1500px">
+	 <img class="w3-image" src="Rehabilitation.jpg"  width="1500" height="700">
+	  <div class="w3-display-middle" style="width:50%">
+		<ul class="w3-navbar w3-black">
+		  <li><a href="javascript:void(0)" class="tablink" onclick="openLink(event,'Plusstre');"><i class="fa fa-plus-square-o  w3-margin-right"></i>新增</a></li>
+		  <li><a href="javascript:void(0)" class="tablink" onclick="openLink(event,'Updatestre');"><i class="fa fa-pencil-square-o w3-margin-right"></i>修改</a></li>
+		  <li><a href="javascript:void(0)" class="tablink" onclick="openLink(event,'Deletestre');"><i class="fa fa-window-close-o  w3-margin-right"></i>刪除</a></li>
+		  <li><a href="javascript:void(0)" class="tablink" onclick="openLink(event,'Zerostre');"><i class="fa fa-clock-o w3-margin-right"></i>歸零</a></li>
+		</ul>
+		
+	
+		<!-- Tabs -->	<br><br>
+		<div id="Plusstre" class="w3-container w3-white w3-padding-16 myLink">
+		<div class="w3-row-padding" style="margin:0 -16px;"> 
+		<!-- Accordion -->		
+		<div class="w3-col">
+			<label>健保代號：</label>
+			<input class="w3-input w3-border" type="text" placeholder="健保代號">
+		</div>
+		<div class="w3-col">
+			<label>療程名稱：</label>
+			<input class="w3-input w3-border" type="text" placeholder="中文名稱">
+		</div>
+		<div class="w3-col">
+			<label>療程英文名稱：</label>
+			<input class="w3-input w3-border" type="text" placeholder="English name">
+		</div>
+		<div class="w3-col">
+			<label>療程英文縮寫：</label>
+			<input class="w3-input w3-border" type="text" placeholder="Abbreviation">
+		</div>
+		<div class="w3-col">
+			<label>時間：</label>
+			<input class="w3-input w3-border" type="text" placeholder="">
+		</div>  
+		<div class="w3-col w3-padding-12">
+			<button class="w3-btn w3-dark-grey">確定</button>  
+		</div><br>
+		</div>
+		</div>
+		
+		
+		<div id="Updatestre" class="w3-container w3-white w3-padding-16 myLink">
+		<div class="w3-row-padding" style="margin:0 -16px;"> 
+		<!-- Accordion -->
+		<div class="w3-col">
+			<label>健保代號：</label>
+			<input class="w3-input w3-border" type="text" placeholder="健保代號">
+		</div>
+		<div class="w3-col">
+			<label>療程名稱：</label>
+			<input class="w3-input w3-border" type="text" placeholder="中文名稱">
+		</div>
+		<div class="w3-col"><br>
+			<label>療程英文名稱：</label>
+			<input class="w3-input w3-border" type="text" placeholder="English name">
+		</div>
+		<div class="w3-col"><br>
+			<label>療程英文縮寫：</label>
+			<input class="w3-input w3-border" type="text" placeholder="Abbreviation">
+		</div>
+		<div class="w3-col">
+			<label>時間：</label>
+			<input class="w3-input w3-border" type="text" placeholder="">
+		</div>
+		<div class="w3-col w3-padding-12">
+			<button class="w3-btn w3-dark-grey">確定</button>  
+		</div><br>
+		
+		</div>
+		</div>
+		
+		<div id="Deletestre" class="w3-container w3-white w3-padding-16 myLink">  
+		<div class="w3-row-padding" style="margin:0 -16px;"> 
+		<!-- Accordion -->
+		<div class="w3-col">
+			<label>健保代號：</label>
+			<input class="w3-input w3-border" type="text" placeholder="健保代號">
+		</div>
+		<div class="w3-col">
+			<label>療程名稱：</label>
+			<input class="w3-input w3-border" type="text" placeholder="中文名稱">
+		</div>
+		<div class="w3-col"><br>
+			<label>療程英文名稱：</label>
+			<input class="w3-input w3-border" type="text" placeholder="English name">
+		</div>
+		<div class="w3-col"><br>
+			<label>療程英文縮寫：</label>
+			<input class="w3-input w3-border" type="text" placeholder="">
+		</div>
+		<div class="w3-col w3-padding-12">
+			<button class="w3-btn w3-dark-grey">確定</button>  
+		</div><br>
+		</div>
+		</div>
+		
+		
+		<div id="Zerostre" class="w3-container w3-white w3-padding-16 myLink">
+		  <h3>時間歸零</h3>
+		  <p>Time to Zero</p>
+		  <p><button class="w3-btn w3-dark-grey">時間修正</button></p>
+		</div>
+	 </div>
+	</header>
+	
+
+	<script>
+	// Tabs
+	function openLink(evt, linkName) {
+	  var i, x, tablinks;
+	  x = document.getElementsByClassName("myLink");
+	  for (i = 0; i < x.length; i++) {
+		  x[i].style.display = "none";
+	  }
+	  tablinks = document.getElementsByClassName("tablink");
+	  for (i = 0; i < x.length; i++) {
+		  tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+	  }
+	  document.getElementById(linkName).style.display = "block";
+	  evt.currentTarget.className += " w3-red";
+	}
+	// Click on the first tablink on load
+	document.getElementsByClassName("tablink")[0].click();
+	
+	// Accordion
+	function myFunction(id) {
+		var x = document.getElementById(id);
+		if (x.className.indexOf("w3-show") == -1) {
+			x.className += " w3-show";
+			x.previousElementSibling.className += " w3-theme-d1";
+		} else { 
+			x.className = x.className.replace("w3-show", "");
+			x.previousElementSibling.className = 
+			x.previousElementSibling.className.replace(" w3-theme-d1", "");
+		}
+	}
+	</script>
+
+	</body>
+</html>

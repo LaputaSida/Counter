@@ -1,0 +1,114 @@
+<html>
+	<head>
+		<title>產生QRcode</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta charset="產生QRcode">
+		<meta name="description" content="">
+		<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+		<meta name="author" content="Hege Refsnes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script>	
+		// Tabs
+		function openLink(evt, linkName) {
+		  var i, x, tablinks;
+		  x = document.getElementsByClassName("myLink");
+		  for (i = 0; i < x.length; i++) {
+			  x[i].style.display = "none";
+		  }
+		  tablinks = document.getElementsByClassName("tablink");
+		  for (i = 0; i < x.length; i++) {
+			  tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+		  }
+		  document.getElementById(linkName).style.display = "block";
+		  evt.currentTarget.className += " w3-red";
+		}
+		// Click on the first tablink on load
+		document.getElementsByClassName("tablink")[0].click();
+		
+		// Accordion
+		function myFunction(id) {
+			var x = document.getElementById(id);
+			if (x.className.indexOf("w3-show") == -1) {
+				x.className += " w3-show";
+				x.previousElementSibling.className += " w3-theme-d1";
+			} else { 
+				x.className = x.className.replace("w3-show", "");
+				x.previousElementSibling.className = 
+				x.previousElementSibling.className.replace(" w3-theme-d1", "");
+			}
+		}
+		</script>
+	
+	</head>
+ 
+	<body>
+	<header class=" w3-display-container w3-content" style="max-width:2000px">
+	<br><br><br><img class="w3-image" src="Rehabilitation.jpg"  width="1500" height="1500">
+	<br><br><br><br><div class="w3-display-middle" style="width:50%">
+	<div class="w3-row-padding" style="margin:0 -16px;"> 
+		<div class="w3-row-padding" style="margin:0 -16px;"> 
+			<!-- Accordion -->
+			<div class="w3-col">
+				<label>健保代號：</label>
+				<input class="w3-input w3-border" type="text" placeholder="">
+			</div>
+			<div class="w3-col">
+				<label>名字：</label>
+				<input class="w3-input w3-border" type="text" placeholder="">
+			</div>
+			<div class="w3-col">
+				<label>期限：</label>
+				<input class="w3-input w3-border" type="text" placeholder="">
+			</div>
+			<div class="w3-col w3-card-2 w3-round w3-left w3-white">
+				<div class="w3-half w3-accordion w3-white">
+				<button onclick="myFunction('place')" class="w3-btn-block w3-theme-l1 w3-left-align">
+				<i class="w3-margin-left"></i>區域</button>
+				<div id="place" class="w3-accordion-content w3-container">
+				<p>
+				<!-- 要從資料庫帶入資料-->
+				<a href="#" class="w3-padding">PT</a>
+				<a href="#" class="w3-padding">OT</a>
+				<a href="#" class="w3-padding">ST</a>
+			
+				</p>
+				</div>
+				</div>
+			
+				<div class="w3-half w3-accordion w3-white">
+				<button onclick="myFunction('item')" class="w3-btn-block w3-theme-l1 w3-left-align">
+				<i class="w3-margin-left"></i>項目</button>
+				<div id="item" class="w3-accordion-content w3-container">
+				<p>
+				<!-- 要從資料庫帶入資料-->
+				<a id="machine" href="machine.html" class="w3-padding">機器</a>
+				<a id="treat" href="treat.html" class="w3-padding">療程</a>
+				</p>
+				</div>
+				</div>
+			</div>
+			
+			
+		</div>
+	</div>
+	<div class="w3-button w3-margin-bottom w3-center" id="plus">
+				<button class="w3-col w3-navbar w3-white w3-wide w3-padding-8 w3-card-2 ">
+				<i class="fa fa-plus w3-center">新增</i>
+				</button>
+			</div>
+	<div class="w3-button w3-margin-bottom w3-center" id="plus">
+				<a href="check.html" >
+				<button class="w3-col w3-navbar w3-white w3-wide w3-padding-8 w3-card-2 ">
+				<i class=" w3-center">確定</i>
+				</button>
+				</a>
+	</div>
+	
+	</div>
+	
+	
+	</div>
+	</header>
+	</body>
