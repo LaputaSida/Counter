@@ -9,41 +9,90 @@
     <meta name="author" content="Hege Refsnes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="w3.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script language="JavaScript">
+    function openScanner() {
+        cordova.plugins.barcodeScanner.scan(
+            function(result) {
+                alert("We got a barcode\n" +
+                    "Result: " + result.text + "\n" +
+                    "Format: " + result.format + "\n" +
+                    "Cancelled: " + result.cancelled);
+            },
+            function(error) {
+                alert("Scanning failed: " + error);
+            }, {
+                preferFrontCamera: true, // iOS and Android
+                showFlipCameraButton: true, // iOS and Android
+                showTorchButton: true, // iOS and Android
+                torchOn: true, // Android, launch with the torch switched on (if available)
+                prompt: "Place a barcode inside the scan area", // Android
+                resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
+                formats: "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
+                orientation: "portrait", // Android only (portrait|landscape), default unset so it rotates with the device
+                disableAnimations: true // iOS
+            }
+        );
+    }
+    </script>
 </head>
 
 <body>
-	
-    <br>
-    <div class=" w3-margin-bottom w3-top">
-	
-        <div class="w3-col-third">
-		<div class="w3-third">
-			<a href="qr.html" target="b">
-				<div class="w3-container w3-pink w3-hover-red">
-					<div class="w3-center"><i class="fa fa-qrcode w3-xxlarge"></i></div>
-				</div>
-			</a>
-        </div>
-		
-		<div class="w3-container w3-orange w3-hover-yellow w3-third w3-dropdown-hover">
-			<a href="javascript:void(0)" class="w3-hover-none w3-padding-medium" title="More">
-			<i class="w3-center fa fa-search w3-xxlarge"></i></a>     
-			<div class="w3-dropdown-content w3-white w3-card-2">
-			  <a href="qrcode.html" target="b">QRcode</a>
-			  <a href="history.html" target="b">歷程記錄</a>
-			</div>
-		</div>
 
-        <div class="w3-third">
-		<a href="new.html" target="b">
-            <div class="w3-container w3-teal w3-hover-green">
-                <div class="w3-center"><i class="fa fa-gear w3-xxlarge"></i></div>
+    <body>
+        <br>
+        <div class=" w3-margin-bottom w3-top">
+            <div class="w3-col">
+                <a href="callmain.html" target="b">
+                    <div class="w3-right">
+                        <h3>Home</h3></div>
+                    <div class="w3-left">
+                        <i class="fa fa-user w3-xxxlarge"></i>
+                    </div>
+                    <div class="w3-clear"></div>
+                </a>
             </div>
-		</a>
+            <div class="w3-col-quarter">
+                <div class="w3-quarter">
+                    <a target="b">
+                        <div class="w3-container w3-pink w3-hover-red" onClick="openScanner()">
+                            <div class="w3-center"><i class="fa fa-qrcode w3-xxlarge"></i></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="w3-quarter">
+                    <a href="qr.html" target="b">
+                        <div class="w3-container w3-orange w3-hover-yellow">
+                            <div class="w3-center"><i class="fa fa-stethoscope  w3-xxlarge"></i></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="w3-container w3-teal w3-hover-green w3-quarter w3-dropdown-hover">
+                    <a href="javascript:void(0)" class="w3-hover-none w3-padding-medium" title="More">
+                        <i class="w3-center fa fa-search w3-xxlarge"></i></a>
+                    <div class="w3-dropdown-content w3-white w3-card-2">
+                        <a href="qrcode.html" target="b">QRcode</a>
+                        <a href="history.html" target="b">歷程記錄</a>
+                    </div>
+                </div>
+                <div class="w3-quarter">
+                    <a href="new.html" target="b">
+                        <div class="w3-container w3-blue w3-text-whitew3-hover-indigo">
+                            <div class="w3-center"><i class="fa fa-gear w3-xxlarge"></i></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
-		</div>
-    </div>
-</body>
+    </body>
 
 </html>
+<br>
+<div class=" w3-margin-bottom w3-top">
+    <div class="w3-col-third">
+        <div class="w3-third">
+        </div>
+    </div>
+    </body>
+
+    </html>
