@@ -12,21 +12,72 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="qrcode.js"></script>
-</head>
+    <script>
+    // Tabs
+    function openLink(evt, linkName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("myLink");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+        }
+        document.getElementById(linkName).style.display = "block";
+        evt.currentTarget.className += " w3-red";
+    }
+    // Click on the first tablink on load
+    document.getElementsByClassName("tablink")[0].click();
 
-<body>
-    <br><br><br><br><br> <br><br><br><br><br> 
-    <header class=" w3-display-container " style="max-width:2000px">
+    // Accordion
+    function myFunction(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-theme-d1";
+        } else {
+            x.className = x.className.replace("w3-show", "");
+            x.previousElementSibling.className =
+                x.previousElementSibling.className.replace(" w3-theme-d1", "");
+        }
+    }
+
+
+    function POST() {
+
+
+    }
+    </script>
+
+    <body>
         <div class="w3-display-middle" style="width:50%">
             <div class="w3-row-padding" style="margin:0 -16px;">
                 <div class="w3-col">
-                    <label>健保代號：</label>
+                    <label>病歷號碼：</label>
                     <input id="id" class="w3-input w3-border" type="text" style="width:80%" />
                 </div>
                 <div class="w3-col">
                     <label>名字：</label>
                     <input id="name" class="w3-input w3-border" type="text" style="width:80%" />
                 </div>
+                <div class="w3-card-2 w3-round ">
+                    <div class="w3-accordion w3-white">
+                        <button onclick="myFunction('place')" class="w3-btn-block w3-theme-l1 w3-left-align">
+                            <i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i>選擇區域</button>
+                        <select id="place" class="w3-accordion-content w3-container">
+                            <!-- 要從資料庫帶入資料-->
+                            <option class="w3-padding" value="PT">PT</option>
+                            <option class="w3-padding" value="OT">OT</option>
+                            <option class="w3-padding" value="ST">ST</option>
+                        </select>
+                    </div>
+                </div>
+                 <div class="w3-col">
+                    <label>療程號碼：</label>
+                    <input id="num" class="w3-input w3-border" type="text" style="width:80%" />
+                </div>
+                <br>
                 <div class="w3-col" id="myDiv">
                     <label>期限日期：</label>
                     <script language="javascript" class="w3-border">
@@ -44,85 +95,40 @@
                     </button>
                 </div>
             </div>
-            <br>
+            
             <div id="qrcode" class="w3-col w3-center" style="width:100px; height:100px;  margin-top:15px;">
             </div>
         </div>
-        <!--<div class="w3-display-middle" style="width:50%">
-            <div class="w3-row-padding" style="margin:0 -16px;">
-                <div class="w3-row-padding" style="margin:0 -16px;">
-                  
-                    <div class="w3-col">
-                        <label>健保代號：</label>
-                        <input class="w3-input w3-border" type="text" placeholder="">
-                    </div>
-                    <div class="w3-col">
-                        <label>名字：</label>
-                        <input class="w3-input w3-border" type="text" placeholder="">
-                    </div>
-                    <div class="w3-col" id="myDiv">
-                        <label>期限日期：</label>
-                        <script language="javascript" class="w3-border">
-                        function ShowDate() {
-                            var Today = new Date();　
-                            var EndDate = Today.getFullYear() + " 年 " + (Today.getMonth() + 2) + " 月 " + Today.getDate() + " 日";
+        <script type="text/javascript">
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            width: 100,
+            height: 100
+        });
 
-                            document.getElementById("date").value = EndDate;
-                        }
-                        </script>
-                        <button onclick="ShowDate()">產生預設</button>
-                        <input class="w3-input w3-border" type="text" value="" id="date">
-                    </div>
-                </div>
-            </div>
+        function makeCode() {
+            var elText = document.getElementById("id");
+            var elText1 = document.getElementById("name");
+            var elText2 = document.getElementById("date");
+            var elText3 = document.getElementById("place");
+            var elText4 = document.getElementById("num");
 
-
-
-            <div class="w3-button w3-margin-bottom w3-center" id="plus">
-                <button class="w3-col w3-navbar w3-white w3-wide w3-padding-8 w3-card-2 ">
-                    <i class="fa fa-plus w3-center">新增</i>
-                </button>
-            </div>
-
-
-            <div class="w3-button w3-margin-bottom w3-center" id="plus">
-                <a href="check.html">
-                    <button class="w3-col w3-navbar w3-white w3-wide w3-padding-8 w3-card-2 ">
-                        <i class=" w3-center">確定</i>
-                    </button>
-                </a>
-            </div>
-        </div>
-        </div>
-        -->
-    </header>
-    <script type="text/javascript">
-    var qrcode = new QRCode(document.getElementById("qrcode"), {
-        width: 100,
-        height: 100
-    });
-
-    function makeCode() {
-        var elText = document.getElementById("id");
-        var elText1 = document.getElementById("name");
-        var elText1 = document.getElementById("date");
-        /**if (!elText.value) {
-            alert("Input a text");
-            elText.focus();
-            return;
-        }**/
-        var s = elText.value + "\n" + elText1.value;
-        qrcode.makeCode(s);
-    }
-
-    //makeCode();
-
-    $("#id,#name,#date").on("blur", function() {
-        makeCode();
-    }).on("keydown", function(e) {
-        if (e.keyCode == 13) {
-            makeCode();
+            /**if (!elText.value) {
+                alert("Input a text");
+                elText.focus();
+                return;
+            }**/
+            var s = elText.value + "\n" + elText1.value+ "\n" + elText2.value+ "\n" + elText3.value+ "\n" + elText4.value;
+            qrcode.makeCode(s);
         }
-    });
-    </script>
-</body>
+
+        //makeCode();
+
+        $("#id,#name,#date,#place,#num").on("blur", function() {
+            makeCode();
+        }).on("keydown", function(e) {
+            if (e.keyCode == 13) {
+                makeCode();
+            }
+        });
+        </script>
+    </body>
