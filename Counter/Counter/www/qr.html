@@ -50,7 +50,7 @@
     }
     </script>
 
-    <body><br><br><br><br><br><br><br><br><br><br><br><br>
+    <body><br><br><br><br><br><br>
         <div class="w3-display-middle" style="width:90%">
            
                 <div class="w3-col">
@@ -104,7 +104,7 @@
 
         function makeCode() {
             var elText = document.getElementById("id");
-            var elText1 = document.getElementById("name");
+           
             var elText2 = document.getElementById("date");
             var elText3 = document.getElementById("place");
             var elText4 = document.getElementById("num");
@@ -114,13 +114,13 @@
                 elText.focus();
                 return;
             }**/
-            var s = elText.value + "\n" + elText1.value+ "\n" + elText2.value+ "\n" + elText3.value+ "\n" + elText4.value;
+            var s = elText.value + "\n" + elText2.value+ "\n" + elText3.value+ "\n" + elText4.value;
             qrcode.makeCode(s);
         }
 
         //makeCode();
 
-        $("#id,#name,#date,#place,#num").on("blur", function() {
+        $("#id,#date,#place,#num").on("blur", function() {
             makeCode();
         }).on("keydown", function(e) {
             if (e.keyCode == 13) {
