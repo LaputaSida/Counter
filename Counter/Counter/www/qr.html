@@ -1,5 +1,6 @@
-<html>
 
+
+<html>
 <head>
     <title>產生QRcode</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -43,31 +44,31 @@
     </script>
 
     <body>
-        <div class=" w3-display-middle" style="width:90%" action:"makeqrcode.php" method="post">
-            <div class="w3-col ">
+        <div class=" w3-padding-8" style="padding-left:30px" action="rehabilitation_scheduling/makeqrcode.php" method="post">
+            <div class="w3-col w3-col">
                 <label>病歷號碼：</label>
-                <input id="pid" name="pid" class="w3-input w3-border" type="text" style="width:80%" />
+                <input id="pid" name="pid" class="w3-input w3-border" type="text" style="width:90%" />
             </div>
            
             <div class="w3-col ">
                 <label>療程號碼：</label>
-                <input id="hid" name="hid" class="w3-input w3-border" type="text" style="width:80%" />
+                <input id="hid" name="hid" class="w3-input w3-border" type="text" style="width:90%" />
             </div>
             
-            <div class="w3-col w3-button w3-center w3-padding-16" >
-            <a href="human.html"  class="w3-col w3-navbar w3-white w3-padding-8 w3-card-2" style="text-decoration:none;">選擇部位</a> 
+            <div class="w3-col w3-button w3-center w3-padding-8" >
+            <a href="human.html"  class="w3-col w3-navbar w3-white w3-padding-8 w3-card-2" style="text-decoration:none; width:90%">選擇部位</a> 
             </div>
 
             <div class="w3-col ">
                 <label>組數：</label>
-                <input id="sets" name="sets" class="w3-input w3-border" type="text" style="width:80%" />
+                <input id="sets" name="sets" class="w3-input w3-border" type="text" style="width:90%" />
             </div>
 
-             <div class="w3-col w3-accordion w3-padding-16">
+             <div class="w3-col w3-accordion w3-padding-8" style="width:90%">
                 <button onclick="myFunction('strength')" class="w3-btn-block  w3-left-align">
                     <i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i>強度
                 </button>
-                <select id="strength" name="strength" class="w3-accordion-content w3-container">
+                <select id="strength" name="strength" class="w3-accordion-content w3-container" >
                     <option class="w3-padding" name="強">強</option>
                     <option class="w3-padding" name="中">中</option>
                     <option class="w3-padding" name="弱">弱</option>
@@ -85,13 +86,11 @@
                 }
                 </script>
                 <button onclick="ShowDate()">產生預設</button>
-                <input class="w3-input w3-border" type="text" name="date" id="date">
+                <input class="w3-input w3-border" type="text" name="date" id="date" style="width:90%">
             </div>
 
-            
-            <button onclick="makeCode()">確定</button> 
-
-            <div id="qrcode" name="qrcode" class="w3-col w3-center" style="width:100px; height:100px;  margin-top:15px;">
+            <div id="qrcode" name="qrcode" class="w3-col" style="width:100px; height:100px;  margin-top:15px;">
+			 <button onclick="makeCode()">確定</button> 
             </div>
         </div>
         <script type="text/javascript">
